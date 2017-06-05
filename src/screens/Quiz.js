@@ -10,6 +10,12 @@ import { Player } from 'react-native-audio-streaming';
 import Sound from 'react-native-sound';
 import Swipeable from 'react-native-swipeable';
 
+const list = [
+    {word: 'Shirt', audio: "shirt.mp3", "img": "shirt.jpg"},
+    {word: 'Jacket', "audio": "jacket.mp3", "img": "jacket.jpg"},
+    {word: 'Trainers', "audio": "trainers.mp3", "img": "trainers.jpg"}
+];
+
 export default class Quiz extends Component{
     constructor(props){
     	super(props);
@@ -70,8 +76,9 @@ export default class Quiz extends Component{
       var list = this.state.list;
       var c= this.state.c;
       let t = c + 1;
+      this.setState({c: t});
       if(list[t] !== undefined){
-          this.onPlaySound(list[t].sound);
+          this.onPlaySound(list[t].audio);
       }
     }
 
@@ -178,20 +185,15 @@ export default class Quiz extends Component{
 
     render(){
         const leftContent = <View style={{flex: 1}}><Text>Pull to activate</Text></View>;
-        var list = this.state.list;
-        //console.log("audio dau tien: "+list[0]);
-        if(list[0] !== undefined){
-            console.log('co audio');
-             this.onPlaySound(list[3].audio);
-        }
+
         // if(list[0].audio)
         //     this.onPlaySound(list[0].audio);
         console.log("list: ", list);
         var arr = [];
         if(list[0] !== undefined){
-            for(let i = 0; i < 4; i++){
+            for(let i = 0; i < 3; i++){
                 let t = list[i];
-                arr.push(<View style={styles.slide1} key={i}><Text>{t.word}</Text></View>);
+                arr.push(<View style={styles.slide1} key={i}><Text>{t.word}</Text><Image onPress={() => this.onPlaySound(t.audio)} source={{uri: `file://${RNFS.DocumentDirectoryPath}/${t.img}`, width: 200, height: 150}}/></View>);
             }
         }
 

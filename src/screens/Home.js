@@ -194,6 +194,19 @@ export default class Home extends Component{
         }
     }
       render() {
+          var arr = [];
+          for(let i=0; i< 10; i++){
+              arr.push(
+                  <View style={styles.slide1} key={i}>
+                    <TouchableOpacity onPress={() => console.log("i: "+i)}>
+                        <Text>{i}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('User')}>
+                        <Text>User</Text>
+                    </TouchableOpacity>
+                  </View>
+              );
+          }
         return (
             <View style={{alignItems: 'stretch', flex: 1}}>
               <StatusBar
@@ -205,17 +218,21 @@ export default class Home extends Component{
                     source={require('../../assets/bg.png')}
                     style={{flex: 1, resizeMode: 'cover', width: null, height: null}}
                 >
-                {this.state.is_download ? (
-                    <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
-                      <Text style={{fontSize: 40}} onPress={() => this.props.navigation.navigate('Quiz', {thamso: 'Hello'})}>Play</Text>
-                      </View>
-                ) : (
-                    <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
-                      <Text style={{fontSize: 40}} onPress={() => this._onDownload()}>Download</Text>
-                      <Image source={{uri: 'https://noidung.tienganh123.com/file/tienganhcoban/bai12/vocabulary/t-shirt.jpg'}}/>
-                      </View>
-                )}
-
+                <Swiper  style={[styles.wrapper,]} showsButtons={true} showsPagination={false}>
+                    {arr}
+                </Swiper>
+                {
+                // {this.state.is_download ? (
+                //     <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
+                //       <Text style={{fontSize: 40}} onPress={() => this.props.navigation.navigate('Quiz', {thamso: 'Hello'})}>Play</Text>
+                //       </View>
+                // ) : (
+                //     <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
+                //       <Text style={{fontSize: 40}} onPress={() => this._onDownload()}>Download</Text>
+                //       <Image source={{uri: 'https://noidung.tienganh123.com/file/tienganhcoban/bai12/vocabulary/t-shirt.jpg'}}/>
+                //       </View>
+                // )}
+                }
                 </Image>
             </View>
         )
@@ -226,6 +243,7 @@ export default class Home extends Component{
 
 var styles = StyleSheet.create({
   wrapper: {
+      flex: 1,
   },
   slide1: {
     flex: 1,

@@ -24,6 +24,9 @@ export const HomeStack = StackNavigator({
     },
     Quiz: {
         screen: Quiz
+    },
+    User: {
+        screen: User
     }
 });
 
@@ -56,11 +59,11 @@ export const Tabs = TabNavigator({
     tabBarOptions:{
         style: {
             backgroundColor: '#ccc',
-            
+
         },
         activeTintColor: '#e91e63',
         inactiveTintColor: 'blue',
-        
+
     }
 });
 
