@@ -4,6 +4,12 @@ import android.app.Application;
 
 import com.facebook.react.ReactApplication;
 import io.realm.react.RealmReactPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.zmxv.RNSound.RNSoundPackage;
+import com.rnfs.RNFSPackage;
+import com.audioStreaming.ReactNativeAudioStreamingPackage;
+import com.rnim.rn.audio.ReactNativeAudioPackage;
+import io.realm.react.RealmReactPackage;
 import com.rnfs.RNFSPackage;
 import com.rnim.rn.audio.ReactNativeAudioPackage;
 import com.audioStreaming.ReactNativeAudioStreamingPackage;
@@ -30,10 +36,16 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new RealmReactPackage(),
-            new RNFSPackage(),
-            new ReactNativeAudioPackage(),
-            new ReactNativeAudioStreamingPackage(),
+            new VectorIconsPackage(),
             new RNSoundPackage(),
+            new RNFSPackage(),
+            new ReactNativeAudioStreamingPackage(),
+            new ReactNativeAudioPackage(),
+            //new RealmReactPackage(),
+            //new RNFSPackage(),
+            //new ReactNativeAudioPackage(),
+            //new ReactNativeAudioStreamingPackage(),
+            //new RNSoundPackage(),
             new ReactPlayerManager()
       );
     }
