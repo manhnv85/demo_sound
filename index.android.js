@@ -3,6 +3,7 @@ import {
   AppRegistry
 } from 'react-native';
 
-import app from './src/app';
+import App from './src/App';
+import IndexApp from './src/indexApp';
 
-AppRegistry.registerComponent('demo_sound', () => app);
+AppRegistry.registerComponent('demo_sound', () => IndexApp);

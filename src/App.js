@@ -31,6 +31,7 @@ class App extends Component{
     }
 
     render(){
+        console.log("nav: ", this.props.navigation);
         return(
             <View style={[{flex: 1}, styles.container]}>
                 <SideMenu
@@ -38,11 +39,11 @@ class App extends Component{
                     isOpen={this.state.isOpen}
                     opChange={(isOpen) => this.updateMenu(isOpen)}
                 >
-                    <Header toggle={this.toggle.bind(this)}/>
+                    <Header navigation={this.props.navigation} toggle={this.toggle.bind(this)}/>
                     <Slide />
-                    <List />
+                    <List navigation={this.props.navigation}/>
                 </SideMenu>
-                
+
             </View>
         )
     }
