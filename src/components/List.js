@@ -18,7 +18,7 @@ class List extends Component{
 
     _renderItem(item){
         const {navigate} = this.props.navigation
-        console.log(this.props.navigation);
+        //console.log(this.props.navigation);
         return (
             <TouchableWithoutFeedback onPress={
                 () => navigate('Details', {item: item})}

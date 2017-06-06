@@ -30,7 +30,7 @@ const IndexApp = StackNavigator({
     Details: {
         screen: Details,
         navigationOptions: {
-            header: null
+            //header: null
         }
     }
 },{
