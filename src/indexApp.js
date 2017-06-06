@@ -8,36 +8,55 @@ import{
     Navigator
 } from 'react-native';
 
-import App from './App';
-import Search from './components/Search';
-import Details from './components/Details';
+import {Provider, connect} from 'react-redux';
+import {StackNavigator, addNavigationHelpers} from 'react-navigation';
 
-import {StackNavigator} from 'react-navigation';
+import Routes from './config/routes';
 
-const IndexApp = StackNavigator({
-    Home: {
-        screen: App,
-        navigationOptions: {
-            header: null
-        }
-    },
-    Search: {
-        screen: Search,
-        navigationOptions: {
-            header: null
-        }
-    },
-    Details: {
-        screen: Details,
-        navigationOptions: {
-            //header: null
-        }
-    }
-},{
+import getStore from './store';
+
+// import App from './App';
+// import Search from './components/Search';
+// import Details from './components/Details';
+// import VideoPlayerView from './components/VideoPlayerView';
+//
+// import {StackNavigator} from 'react-navigation';
+
+const Navigation = StackNavigator(Routes, {
     headerMode: 'screen'
 });
 
-export default IndexApp;
+const navReducer = (state, action) => {
+    const newState = Navigation.router.getStateForAction(action, state);
+    return newState || state;
+}
+
+class App extends Component{
+    render(){
+        return(
+            <Navigation
+                navigation={addNavigationHelpers({
+                    dispatch: this.props.dispatch,
+                    state: this.props.nav
+                })}
+            />
+        )
+    }
+}
+
+const store = getStore(navReducer);
+
+const AppIndex = connect(state => ({nav: state.nav}))(App);
+
+export default Index = () => {
+    return (
+        <Provider store={store}>
+            <AppIndex />
+        </Provider>
+    )
+}
+
+//export default IndexApp;
 
 // class IndexApp extends Component{
 //     return(){

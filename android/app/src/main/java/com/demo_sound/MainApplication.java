@@ -6,6 +6,20 @@ import com.facebook.react.ReactApplication;
 import io.realm.react.RealmReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.zmxv.RNSound.RNSoundPackage;
+import com.github.yamill.orientation.OrientationPackage;
+import com.rnfs.RNFSPackage;
+import com.audioStreaming.ReactNativeAudioStreamingPackage;
+import com.rnim.rn.audio.ReactNativeAudioPackage;
+import com.brentvatne.react.ReactVideoPackage;
+import io.realm.react.RealmReactPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.zmxv.RNSound.RNSoundPackage;
+import com.rnfs.RNFSPackage;
+import com.audioStreaming.ReactNativeAudioStreamingPackage;
+import com.rnim.rn.audio.ReactNativeAudioPackage;
+import io.realm.react.RealmReactPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.zmxv.RNSound.RNSoundPackage;
 import com.rnfs.RNFSPackage;
 import com.audioStreaming.ReactNativeAudioStreamingPackage;
 import com.rnim.rn.audio.ReactNativeAudioPackage;
@@ -41,12 +55,26 @@ public class MainApplication extends Application implements ReactApplication {
             new RNFSPackage(),
             new ReactNativeAudioStreamingPackage(),
             new ReactNativeAudioPackage(),
+            new ReactVideoPackage(),
+            //new RealmReactPackage(),
+            //new VectorIconsPackage(),
+            //new RNSoundPackage(),
+            //new RNFSPackage(),
+            //new ReactNativeAudioStreamingPackage(),
+            //new ReactNativeAudioPackage(),
+            //new RealmReactPackage(),
+            //new VectorIconsPackage(),
+            //new RNSoundPackage(),
+            //new RNFSPackage(),
+            //new ReactNativeAudioStreamingPackage(),
+            //new ReactNativeAudioPackage(),
             //new RealmReactPackage(),
             //new RNFSPackage(),
             //new ReactNativeAudioPackage(),
             //new ReactNativeAudioStreamingPackage(),
             //new RNSoundPackage(),
             new ReactPlayerManager()
+            //new OrientationPackage()
       );
     }
   };

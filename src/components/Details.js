@@ -9,7 +9,8 @@ import{
     TouchableHighlight,
     TouchableWithoutFeedback,
     ScrollView,
-    Dimensions
+    Dimensions,
+    Share
 } from 'react-native';
 
 const {width, height} = Dimensions.get('window');
@@ -23,6 +24,21 @@ class Details extends Component{
         header: {
             visiable: false
         }
+    }
+
+    onShare(){
+        Share.share({
+            title: 'Demo',
+            url: 'www.youtube.com',
+            message: 'Awesome Tv Show'
+        },{
+            //android
+            dialogTitle: 'Share this awesome content',
+            //ios
+            excludeActivityTypes: [
+                'com.apple.UIKit.activity.PostToTwitter'
+            ]
+        })
     }
     render(){
         console.log(this.props.navigation);
@@ -70,15 +86,17 @@ class Details extends Component{
                             />
                             <Text style={styles.text}>My List</Text>
                         </View>
-                        <View style={styles.myShareIcon}>
-                            <Icon
-                                style={styles.shareIcon}
-                                name="share-alt"
-                                color="grey"
-                                size={25}
-                            />
-                            <Text style={styles.text}>Share</Text>
-                        </View>
+                        <TouchableHighlight onPress={this.onShare}>
+                            <View style={styles.myShareIcon}>
+                                <Icon
+                                    style={styles.shareIcon}
+                                    name="share-alt"
+                                    color="grey"
+                                    size={25}
+                                />
+                                <Text style={styles.text}>Share</Text>
+                            </View>
+                        </TouchableHighlight>
                     </View>
                 </View>
                 <TabEpisodes data={episodes}/>
